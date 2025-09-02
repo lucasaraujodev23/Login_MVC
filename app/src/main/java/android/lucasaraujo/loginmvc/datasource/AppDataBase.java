@@ -8,21 +8,21 @@ import android.lucasaraujo.loginmvc.datamodel.UsuarioDataModel;
 import androidx.annotation.Nullable;
 
 public class AppDataBase extends SQLiteOpenHelper {
-    SQLiteDatabase db;
-    public static final String DB_NAME = "MVC.sqlite";
+    SQLiteDatabase sqLiteDatabase;
+    public static final String NAME = "app.sqlite";
     public static int version = 1;
     public AppDataBase(Context context) {
-        super(context, DB_NAME, null, version);
-        db = getWritableDatabase();
+        super(context, NAME, null, version);
+        sqLiteDatabase = getWritableDatabase();
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL(UsuarioDataModel.criarTabela());
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL(UsuarioDataModel.criarTabela());
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 
     }
 }
