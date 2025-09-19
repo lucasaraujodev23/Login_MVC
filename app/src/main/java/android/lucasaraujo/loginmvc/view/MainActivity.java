@@ -1,7 +1,11 @@
 package android.lucasaraujo.loginmvc.view;
 
 import android.lucasaraujo.loginmvc.R;
+import android.lucasaraujo.loginmvc.controller.UsuarioController;
+import android.lucasaraujo.loginmvc.model.Usuario;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +14,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText email, senha;
+    private Button entrar, criar;
+    Usuario usuario;
+    UsuarioController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
