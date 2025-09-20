@@ -18,9 +18,9 @@ public class UsuarioController extends AppDataBase implements iCrud<Usuario> {
     @Override
     public boolean incluir(Usuario obj) {
         dadosDoObjeto = new ContentValues();
-        dadosDoObjeto.put(UsuarioDataModel.NOME, obj.getUserName() );
-        dadosDoObjeto.put(UsuarioDataModel.EMAIL, obj.getUserEmail() );
-        dadosDoObjeto.put(UsuarioDataModel.SENHA, obj.getPassword() );
+        dadosDoObjeto.put(UsuarioDataModel.NOME, obj.getNome() );
+        dadosDoObjeto.put(UsuarioDataModel.EMAIL, obj.getEmail() );
+        dadosDoObjeto.put(UsuarioDataModel.SENHA, obj.getSenha() );
 
         return insert(UsuarioDataModel.TABELA, dadosDoObjeto);
     }
@@ -41,6 +41,10 @@ public class UsuarioController extends AppDataBase implements iCrud<Usuario> {
     }
 
     public boolean usuarioeSenha(String username, String password){
-        return checkUserPassword(username, password)
+        return checkUserPassword(username, password);
+    }
+
+    public boolean usuario(String email){
+        return checkUser(email);
     }
 }
